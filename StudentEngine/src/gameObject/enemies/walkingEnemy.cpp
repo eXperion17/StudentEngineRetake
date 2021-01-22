@@ -1,7 +1,8 @@
 #include "stdafx.h"
 
 WalkingEnemy::WalkingEnemy(const String& name) : EnemyObject(name) {
-	SetTexture(GetAssetManager()->Get<StreamedTexture>("PurpleCat"));
+	SetTexture(GetAssetManager()->Get<StreamedTexture>("Cat"));
+	SetColor(Color::Purple());
 }
 
 EditorObjectType WalkingEnemy::GetObjectType() const {

@@ -1,7 +1,8 @@
 #include "stdafx.h"
 
 PowerupPickup::PowerupPickup(const String& name) : PickupObject(name) {
-	SetTexture(GetAssetManager()->Get<StreamedTexture>("GreenPickup"));
+	SetTexture(GetAssetManager()->Get<StreamedTexture>("PowerUpPickup"));
+	SetColor(Color::Green());
 }
 
 EditorObjectType PowerupPickup::GetObjectType() const {

@@ -28,6 +28,8 @@ public:
 	constexpr static Color Magenta() { return Color(1, 0, 1); }
 	constexpr static Color Cyan() { return Color(0, 1, 1); }
 
+	constexpr static Color Purple() { return Color(0.75f, 0, 0.75f); }
+
 	constexpr static Color Transparent() { return Color(0, 0, 0, 0); }
 	constexpr static Color NormalMap() { return Color(0.5f, 0.5f, 1); }
 

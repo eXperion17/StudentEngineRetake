@@ -1,7 +1,8 @@
 #include "stdafx.h"
 
 CoinPickup::CoinPickup(const String& name) : PickupObject(name) {
-	SetTexture(GetAssetManager()->Get<StreamedTexture>("BluePickup"));
+	SetTexture(GetAssetManager()->Get<StreamedTexture>("CoinPickup"));
+	SetColor(Color::Cyan());
 }
 
 EditorObjectType CoinPickup::GetObjectType() const {

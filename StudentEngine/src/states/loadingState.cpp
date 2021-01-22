@@ -39,11 +39,9 @@ void LoadingState::Initialize() {
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("PlayerOne-fallLeft", "res/assets/textures/player1-fallLeft.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("PlayerOne-fallRight", "res/assets/textures/player1-fallRight.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("GreyCat", "res/assets/textures/greycat.png"));
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("BrownCat", "res/assets/textures/browncat.png"));
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("RedCat", "res/assets/textures/redcat.png"));
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("PurpleCat", "res/assets/textures/purplecat.png"));
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("BluePickup", "res/assets/textures/bluePickup.png"));
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("GreenPickup", "res/assets/textures/greenPickup.png"));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Cat", "res/assets/textures/cat.png"));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("CoinPickup", "res/assets/textures/coinPickup.png"));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("PowerUpPickup", "res/assets/textures/powerupPickup.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Goal", "res/assets/textures/goal.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Particles", "res/assets/textures/particles.png"));
 	

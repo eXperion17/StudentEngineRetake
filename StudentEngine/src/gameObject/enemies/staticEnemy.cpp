@@ -1,7 +1,8 @@
 #include "stdafx.h"
 
 StaticEnemy::StaticEnemy(const String& name) : EnemyObject(name) {
-	SetTexture(GetAssetManager()->Get<StreamedTexture>("RedCat"));
+	SetTexture(GetAssetManager()->Get<StreamedTexture>("Cat"));
+	SetColor(Color::Red());
 }
 
 EditorObjectType StaticEnemy::GetObjectType() const {
