@@ -366,29 +366,29 @@ void EditorWindow::CreateEditorWindows() {
 	if (ImGui::Begin("Items", nullptr, window_flags2)) {
 		if (ImGui::Button("Terrain", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::TERRAIN);
-		OnItemTooltip("Create walkable terrain for characters to walk on");
+		OnItemTooltip("(Drag to level) Create walkable terrain for characters to walk on");
 
 		ImGui::SameLine();
 
 		if (ImGui::Button("Coin Pickup", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::PICKUP_COIN);
-		OnItemTooltip("Create a coin pickup that gives the player points");
+		OnItemTooltip("(Drag to level) Create a coin pickup that gives the player points");
 
 
 		if (ImGui::Button("Powerup", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::PICKUP_POWERUP);
-		OnItemTooltip("Create a powerup pickup that gives the player temporary invincibility against enemies");
+		OnItemTooltip("(Drag to level) Create a powerup pickup that gives the player temporary invincibility against enemies");
 
 		ImGui::SameLine();
 
 		if (ImGui::Button("Static Enemy", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::ENEMY_STATIC);
-		OnItemTooltip("Create a static enemy the player is able to jump on to defeat");
+		OnItemTooltip("(Drag to level) Create a static enemy the player is able to jump on to defeat");
 
 
 		if (ImGui::Button("Walking Enemy", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::ENEMY_WALKING);
-		OnItemTooltip("Create a walking enemy the player is able to jump on to defeat");
+		OnItemTooltip("(Drag to level) Create a walking enemy the player is able to jump on to defeat");
 	}
 	ImGui::End();
 
