@@ -138,6 +138,20 @@ public:
 		obj->m_layer = otherLayer;
 	}
 
+	void BringObjectForward(GameObject* obj) {
+		auto* layer = FindLayerByName(obj->m_layer);
+
+		layer->RemoveObject(obj);
+		layer->m_objects.push_back(obj);
+	}
+
+	void BringObjectBack(GameObject* obj) {
+		auto* layer = FindLayerByName(obj->m_layer);
+
+		layer->RemoveObject(obj);
+		layer->m_objects.insert(layer->m_objects.begin(), obj);
+	}
+
 	void SetSelected(GameObject* selected) {
 		m_selected = selected;
 	}

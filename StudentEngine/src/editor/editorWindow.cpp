@@ -97,6 +97,14 @@ void EditorWindow::OnRightClickSelected() {
 				GetEditorScene()->GetHierarchy().DeleteGameObject(GetEditorScene()->m_hierarchy.GetSelected());
 			}
 
+			if (!isVIP && ImGui::Button("Bring forward")) {
+				GetEditorScene()->GetHierarchy().BringObjectForward(GetEditorScene()->m_hierarchy.GetSelected());
+			}
+
+			if (!isVIP && ImGui::Button("Bring back")) {
+				GetEditorScene()->GetHierarchy().BringObjectBack(GetEditorScene()->m_hierarchy.GetSelected());
+			}
+
 			ImGui::End();
 		}
 	}
