@@ -192,6 +192,6 @@ bool PlayerObject::GetInputRight() {
 }
 
 bool PlayerObject::GetInputJump() {
-	return (GetKeyboard()->KeyDown(VK_SPACE) || GetKeyboard()->KeyDown(VK_ARROW_UP));
+	return (GetKeyboard()->KeyDown(VK_SPACE) || GetKeyboard()->KeyDown(VK_ARROW_UP) || GetKeyboard()->KeyDown('W'));
 
 }
