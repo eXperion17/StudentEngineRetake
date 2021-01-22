@@ -23,6 +23,11 @@ void PlayState::Update(const TimeStep& time) {
 
 	if (!m_paused)
 		m_scene->Update(time);
+	
+	/// Using AsyncKeyState instead of our code to detect keys that are normally window-dependent
+	if (GetAsyncKeyState(VK_ESCAPE)) {
+		GetEditorWindow()->ToggleEditMode(true);
+	}
 }
 
 void PlayState::Draw(RenderingPipeline* pipeline) {
