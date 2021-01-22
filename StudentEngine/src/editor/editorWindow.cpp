@@ -128,8 +128,7 @@ void EditorWindow::CreateTemporaryPlayMode() {
 
 		if (ImGui::BeginMainMenuBar()) {
 			if (ImGui::Button("Return to Edit")) {
-				m_inEditorMode = true;
-				GetStateManager()->SetState(States::EDIT);
+				ToggleEditMode(true);
 			}
 		}
 		ImGui::EndMainMenuBar();
@@ -217,8 +216,8 @@ void EditorWindow::CreateEditorWindows() {
 	ImGui::PushFont(bigIconFont);
 
 	if (CreateMenuButton(ICON_FA_PLAY, true)) {
-		m_inEditorMode = false;
-		GetStateManager()->SetState(States::PLAY);
+		ToggleEditMode(false);
+		
 	}
 	OnItemTooltip("Enter play mode and test your game!");
 
@@ -499,8 +498,14 @@ void EditorWindow::InstantiateDragging(bool externalSource) {
 	m_draggingItem = true;
 }
 
-void EditorWindow::ToggleEditMode() {
+void EditorWindow::ToggleEditMode(bool toEdit) {
 	m_inEditorMode = !m_inEditorMode;
+
+	if (m_inEditorMode) {
+		GetStateManager()->SetState(States::EDIT);
+	} else {
+		GetStateManager()->SetState(States::PLAY);
+	}
 }
 
 void EditorWindow::SetupEditorStyle(bool bStyleDark, float alpha) {
