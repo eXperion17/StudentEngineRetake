@@ -28,6 +28,11 @@ void PlayState::Update(const TimeStep& time) {
 	if (GetAsyncKeyState(VK_ESCAPE)) {
 		GetEditorWindow()->ToggleEditMode(true);
 	}
+
+	if (GetKeyboard()->KeyJustDown('R')) {
+		Restart();
+		ImGui::CloseCurrentPopup();
+	}
 }
 
 void PlayState::Draw(RenderingPipeline* pipeline) {
@@ -84,8 +89,10 @@ void PlayState::OnImGui() {
 		ImGui::Separator();
 		if (ImGui::Button("Replay")) {
 			m_restarting = true;
-			ImGui::CloseCurrentPopup();
 		}
+		///Moved outside of the statement to allow for auto-close (when restarting through a button instead)
+		if (m_restarting)
+			ImGui::CloseCurrentPopup();
 		ImGui::EndPopup();
 	}
 	if (ImGui::BeginPopupModal("Victory", NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
@@ -93,8 +100,10 @@ void PlayState::OnImGui() {
 		ImGui::Separator();
 		if (ImGui::Button("Replay")) {
 			m_restarting = true;
-			ImGui::CloseCurrentPopup();
 		}
+		///Moved outside of the statement to allow for auto-close (when restarting through a button instead)
+		if (m_restarting)
+			ImGui::CloseCurrentPopup();
 		ImGui::EndPopup();
 	}
 	//ImGui::End();
