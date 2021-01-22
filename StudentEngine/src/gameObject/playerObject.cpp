@@ -19,6 +19,7 @@ PlayerObject::PlayerObject(const String& name) : GameObject(name, true) {
 	SetMovementSpeed(0.5);
 	m_layer = "Foreground";
 	m_invincible = false;
+	m_jumpHeight = 20;
 }
 
 EditorObjectType PlayerObject::GetObjectType() const {
@@ -72,7 +73,7 @@ void PlayerObject::Update(const TimeStep& time) {
 
 	if (m_physicsObject.m_isGrounded && GetInputJump()) {
 		GetAudioManager()->Play(this, jumpSound);
-		m_physicsObject.m_velocity.y = 20;
+		m_physicsObject.m_velocity.y = m_jumpHeight;
 		m_physicsObject.m_isGrounded = false;
 		m_isJumping = true;
 		if (m_usingMultiSheet) {
@@ -138,6 +139,7 @@ GameObject* PlayerObject::Copy() {
 void PlayerObject::InspectorDraw() {
 	GameObject::InspectorDraw();
 	InspectorDrawer::Float(this, "Movement speed", m_movementSpeed);
+	InspectorDrawer::Float(this, "Jump height", m_jumpHeight);
 	ImGui::AlignTextToFramePadding();
 	ImGui::Text("Player Texture");
 	float width = ImGui::GetContentRegionAvail().x;

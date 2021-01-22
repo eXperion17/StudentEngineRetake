@@ -5,6 +5,7 @@ private:
 	float m_movementSpeed;
 	bool m_invincible;
 	Timer m_invincibilityTimer;
+	float m_jumpHeight;
 
 	bool m_usingMultiSheet;
 	StreamedTexture* m_idle;
@@ -31,11 +32,13 @@ public:
 		GameObject::ToJson(j);
 		j["movement speed"] = m_movementSpeed;
 		j["invincible"] = m_invincible;
+		j["jump height"] = m_jumpHeight;
 	}
 	void FromJson(const nlohmann::json& j) override {
 		GameObject::FromJson(j);
 		j.at("movement speed").get_to(m_movementSpeed);
 		j.at("invincible").get_to(m_invincible);
+		j.at("jump height").get_to(m_jumpHeight);
 	}
 
 	bool Compare(const GameObject* other) override {
