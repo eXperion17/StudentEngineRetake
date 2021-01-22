@@ -23,6 +23,9 @@ public:
 	PlayerObject* SetMovementSpeed(float speed);
 	PlayerObject* SetInvinciblity(bool invincible);
 	bool GetInvinciblity();
+	bool GetInputLeft();
+	bool GetInputRight();
+	bool GetInputJump();
 
 	void ToJson(nlohmann::json& j) const override {
 		GameObject::ToJson(j);

@@ -40,7 +40,7 @@ void PlayerObject::Update(const TimeStep& time) {
 	Audio* walkSound = GetAssetManager()->Get<Audio>("GrassWalkSound");
 	Audio* jumpSound = GetAssetManager()->Get<Audio>("JumpSound");
 
-	if (GetKeyboard()->KeyDown('A')) {
+	if (GetInputLeft()) {
 		if (m_usingMultiSheet && m_physicsObject.m_isGrounded) {
 			SetAtlasValues(6, 6, 0.125f);
 			SetTexture(m_runLeft);
@@ -51,7 +51,7 @@ void PlayerObject::Update(const TimeStep& time) {
 		m_physicsObject.m_velocity.x -= m_movementSpeed * time;
 	}
 
-	if (GetKeyboard()->KeyDown('D')) {
+	if (GetInputRight()) {
 		if (m_usingMultiSheet && m_physicsObject.m_isGrounded) {
 			SetAtlasValues(6, 6, 0.125f);
 			SetTexture(m_runRight);
@@ -62,7 +62,7 @@ void PlayerObject::Update(const TimeStep& time) {
 		m_physicsObject.m_velocity.x += m_movementSpeed * time;
 	}
 
-	if ((!GetKeyboard()->KeyDown('D') && !GetKeyboard()->KeyDown('A')) || !m_physicsObject.m_isGrounded) {
+	if ((!GetInputRight() && !GetInputLeft() || !m_physicsObject.m_isGrounded)) {
 		GetAudioManager()->Stop(this, walkSound);
 		if (m_usingMultiSheet && m_physicsObject.m_isGrounded) {
 			SetAtlasValues(4, 4, 0.125f);
@@ -70,7 +70,7 @@ void PlayerObject::Update(const TimeStep& time) {
 		}
 	}
 
-	if (m_physicsObject.m_isGrounded && KeyJustDown(VK_SPACE)) {
+	if (m_physicsObject.m_isGrounded && GetInputJump()) {
 		GetAudioManager()->Play(this, jumpSound);
 		m_physicsObject.m_velocity.y = 20;
 		m_physicsObject.m_isGrounded = false;
@@ -84,7 +84,7 @@ void PlayerObject::Update(const TimeStep& time) {
 		}
 	}
 
-	if (!KeyDown(VK_SPACE)) m_isJumping = false;
+	if (!GetInputJump()) m_isJumping = false;
 
 	if (!m_physicsObject.m_isGrounded && m_physicsObject.m_velocity < 0) {
 		if (m_usingMultiSheet) {
@@ -96,7 +96,7 @@ void PlayerObject::Update(const TimeStep& time) {
 		}
 	}
 
-	if (!m_physicsObject.m_isGrounded && KeyDown(VK_SPACE) && m_isJumping) {
+	if (!m_physicsObject.m_isGrounded && GetInputJump() && m_isJumping) {
 		if (m_physicsObject.m_velocity.y > 0) {
 			m_physicsObject.m_velocity.y += (0.075f * m_physicsObject.m_velocity.y) + 0.05f;
 		}
@@ -181,4 +181,17 @@ PlayerObject* PlayerObject::SetInvinciblity(bool invincible) {
 
 bool PlayerObject::GetInvinciblity() {
 	return m_invincible;
+}
+
+bool PlayerObject::GetInputLeft() {
+	return (GetKeyboard()->KeyDown('A') || GetKeyboard()->KeyDown(VK_ARROW_LEFT));
+}
+
+bool PlayerObject::GetInputRight() {
+	return (GetKeyboard()->KeyDown('D') || GetKeyboard()->KeyDown(VK_ARROW_RIGHT));
+}
+
+bool PlayerObject::GetInputJump() {
+	return (GetKeyboard()->KeyDown(VK_SPACE) || GetKeyboard()->KeyDown(VK_ARROW_UP));
+
 }

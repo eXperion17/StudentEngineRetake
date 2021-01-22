@@ -46,6 +46,10 @@
 #define VK_KEY_Y	0x59                //('Y')	Y
 #define VK_KEY_Z	0x5A                //('Z')	Z
 
+#define VK_ARROW_LEFT 263
+#define VK_ARROW_RIGHT 262
+#define VK_ARROW_UP 265
+
 class Keyboard : public Singleton<Keyboard> {
 private:
 
