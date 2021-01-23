@@ -14,6 +14,7 @@ public:
 	static void Text(String_t name, String_t text);
 	static bool EditText(GameObject* gameObject, String_t name, String& text);
 	static bool Float(GameObject* gameObject, String_t name, float& vec);
+	static bool Bool(GameObject* gameObject, String_t name, bool& value);
 	static bool Vec2(GameObject* gameObject, String_t name, Vector2& vec);
 	static bool Vec3(GameObject* gameObject, String_t name, Vector3& vec);
 	static bool Color(GameObject* gameObject, String_t name, ::Color& color);

@@ -17,4 +17,5 @@ GameObject* TerrainObject::Copy() {
 
 void TerrainObject::InspectorDraw() {
 	GameObject::InspectorDraw();
+	InspectorDrawer::Bool(this, "Disable collision", m_disabledCollision);
 }

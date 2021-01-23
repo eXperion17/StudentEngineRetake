@@ -42,6 +42,26 @@ bool InspectorDrawer::Float(GameObject* gameObject, String_t name, float& flt) {
 	return toRet;
 }
 
+bool InspectorDrawer::Bool(GameObject* gameObject, String_t name, bool& flt) {
+	float width = PrepareLine(name);
+	ImGui::SameLine(width / 2);
+	ImGui::PushItemWidth(width / 2);
+	bool toRet = false;
+
+	if (ImGui::RadioButton(Format_t("true"), flt)) {
+		flt = true;
+		toRet = true;
+	}
+
+	ImGui::SameLine();
+	if (ImGui::RadioButton(Format_t("false"), !flt)) {
+		flt = false;
+		toRet = true;
+	}
+
+	return toRet;
+}
+
 bool InspectorDrawer::Vec3(GameObject* gameObject, String_t name, Vector3& vec) {
 	float width = PrepareLine(name);
 	ImGui::SameLine(width / 2);
