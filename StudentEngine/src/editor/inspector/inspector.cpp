@@ -48,13 +48,14 @@ bool InspectorDrawer::Bool(GameObject* gameObject, String_t name, bool& flt) {
 	ImGui::PushItemWidth(width / 2);
 	bool toRet = false;
 
-	if (ImGui::RadioButton(Format_t("true"), flt)) {
+	/// Still only shows true/false, necessary to give them an unique id for ImGui
+	if (ImGui::RadioButton(Format_t("##%s true", name), flt)) {
 		flt = true;
 		toRet = true;
 	}
 
 	ImGui::SameLine();
-	if (ImGui::RadioButton(Format_t("false"), !flt)) {
+	if (ImGui::RadioButton(Format_t("##%s false", name), !flt)) {
 		flt = false;
 		toRet = true;
 	}

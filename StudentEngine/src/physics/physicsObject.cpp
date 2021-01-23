@@ -13,8 +13,18 @@ bool PhysicsObject::CheckCollision(float xa, float ya) {
 				continue;
 
 			if (m_gameObject->m_transform.CollidesWith(other, xa, ya)) {
-				m_gameObject->OnCollision(other, GetCollisionType(xa, ya));
-				if (other->OnCollision(m_gameObject, GetCollisionType(xa, ya))) return true;
+				auto type = GetCollisionType(xa, ya);
+				
+				/// Check to see if its a one way, if it is and we collide from the bottom we just skip over it
+				if (other->GetObjectType() == EditorObjectType::TERRAIN) {
+					TerrainObject* terr = (TerrainObject*)other;
+					if (terr->m_oneWay && type == CollisionType::BOTTOM) {
+						continue;
+					}
+				}
+
+				m_gameObject->OnCollision(other, type);
+				if (other->OnCollision(m_gameObject, type)) return true;
 			}
 		}
 	}

@@ -7,6 +7,14 @@ TerrainObject::TerrainObject(const String& name) : GameObject(name, false) {
 	m_layer = "Background";
 }
 
+/*TerrainObject::TerrainObject(const String& name, bool oneWay) : GameObject(name, false) {
+	SetSize(Vector2(64, 64));
+	Set9Slice(true);
+	SetTexture(GetAssetManager()->Get<StreamedTexture>("9slice"));
+	m_layer = "Background";
+	m_oneWay = oneWay;
+}*/
+
 EditorObjectType TerrainObject::GetObjectType() const {
 	return EditorObjectType::TERRAIN;
 }
@@ -18,4 +26,5 @@ GameObject* TerrainObject::Copy() {
 void TerrainObject::InspectorDraw() {
 	GameObject::InspectorDraw();
 	InspectorDrawer::Bool(this, "Disable collision", m_disabledCollision);
+	InspectorDrawer::Bool(this, "One way", m_oneWay);
 }
