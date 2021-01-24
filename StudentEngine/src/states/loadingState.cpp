@@ -44,6 +44,7 @@ void LoadingState::Initialize() {
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("PowerUpPickup", "res/assets/textures/powerupPickup.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Goal", "res/assets/textures/goal.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Particles", "res/assets/textures/particles.png"));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Trampoline", "res/assets/textures/trampoline.png"));
 	
 	GameObject::SetValidTextures("Player", { "PlayerOne-idle", "GreyCat", "BrownCat" });
 

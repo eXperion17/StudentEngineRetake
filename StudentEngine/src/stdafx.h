@@ -163,6 +163,7 @@ using namespace std;
 #include "gameObject/playerObject.h"
 #include "gameObject/goalObject.h"
 #include "gameObject/terrainObject.h"
+#include "gameObject/trampolineObject.h"
 #include "gameObject/pickups/pickupObject.h"
 #include "gameObject/pickups/coinPickup.h"
 #include "gameObject/pickups/powerupPickup.h"

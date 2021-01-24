@@ -370,21 +370,26 @@ void EditorWindow::CreateEditorWindows() {
 
 		ImGui::SameLine();
 
+		if (ImGui::Button("Trampoline", ImVec2(100, 100))) {}
+		CreateItemDrag(EditorObjectType::TRAMPOLINE);
+		OnItemTooltip("(Drag to level) Create a trampoline that the player can use to jump up higher");
+
 		if (ImGui::Button("Coin Pickup", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::PICKUP_COIN);
 		OnItemTooltip("(Drag to level) Create a coin pickup that gives the player points");
 
+		ImGui::SameLine();
 
 		if (ImGui::Button("Powerup", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::PICKUP_POWERUP);
 		OnItemTooltip("(Drag to level) Create a powerup pickup that gives the player temporary invincibility against enemies");
 
-		ImGui::SameLine();
 
 		if (ImGui::Button("Static Enemy", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::ENEMY_STATIC);
 		OnItemTooltip("(Drag to level) Create a static enemy the player is able to jump on to defeat");
 
+		ImGui::SameLine();
 
 		if (ImGui::Button("Walking Enemy", ImVec2(100, 100))) {}
 		CreateItemDrag(EditorObjectType::ENEMY_WALKING);

@@ -30,6 +30,9 @@ GameObject* ObjectFactory::CreateObject(EditorObjectType objectType, const Strin
 		case EditorObjectType::ENEMY_WALKING:
 			newObject = new WalkingEnemy(objectName);
 			break;
+		case EditorObjectType::TRAMPOLINE:
+			newObject = new TrampolineObject(objectName);
+			break;
 	}
 
 	newObject->m_id = g_ID++;
