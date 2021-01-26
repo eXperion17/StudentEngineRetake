@@ -23,7 +23,11 @@ void LoadingState::Initialize() {
 	//GetAssetManager()->AddToLoadQueue(new CustomLoadJob("ImGui Manager", [] {}, [] {  }));
 	//GetAssetManager()->AddToLoadQueue(new CustomLoadJob("Editor Window", [] {  }));
 
-	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("9slice", "res/assets/textures/tile.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Basic Tile", "res/assets/textures/tile.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Basic Tile Around", "res/assets/textures/tile_around.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Grass", "res/assets/textures/grass.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("White Tile", "res/assets/textures/whitetile.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
+	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("White Tile Around", "res/assets/textures/whitetile_around.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Gems", "res/assets/textures/gems.png", TextureParameters(RGBA, RGBA, NEAREST, REPEAT)));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("ButtonGizmo", "res/assets/textures/buttonGizmo.png"));
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("ButtonGizmo", "res/assets/textures/buttonGizmo.png"));
@@ -47,6 +51,7 @@ void LoadingState::Initialize() {
 	GetAssetManager()->AddToLoadQueue(new TextureLoadJob("Trampoline", "res/assets/textures/trampoline.png"));
 	
 	GameObject::SetValidTextures("Player", { "PlayerOne-idle", "GreyCat", "BrownCat" });
+	GameObject::SetValidTextures("Terrain", { "Basic Tile", "Grass", "Basic Tile Around", "White Tile", "White Tile Around" });
 
 	GetAssetManager()->AddToLoadQueue(new AudioLoadJob("GrassWalkSound", "res/assets/audio/grass_walk.wav"));
 	GetAssetManager()->AddToLoadQueue(new AudioLoadJob("JumpSound", "res/assets/audio/jump_sound.wav"));
